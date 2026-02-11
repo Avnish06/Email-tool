@@ -1,0 +1,46 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-email/components": "^1.0.7",
+    "@react-email/render": "^2.0.4",
+    "@react-three/fiber": "^8.17.10",
+    "axios": "^1.13.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
+    "radix-ui": "^1.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-email": "^5.2.8",
+    "react-router-dom": "^6.22.3",
+    "react-spinners": "^0.17.0",
+    "react-toastify": "^11.0.5",
+    "tailwind-merge": "^3.4.0",
+    "three": "^0.167.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.19",
+    "vite": "^5.2.10"
+  }
+}
