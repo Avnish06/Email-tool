@@ -54,14 +54,14 @@ const [Loading, setLoading] = useState(false)
 
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center
-              ${step === 1 ? "bg-indigo-600 text-white" : "bg-gray-300"}`}
+              ${step === 1 ? "bg-teal-500 text-white" : "bg-gray-300"}`}
             >
               1
             </div>
 
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center
-              ${step === 2 ? "bg-indigo-600 text-white" : "bg-gray-300"}`}
+              ${step === 2 ? "bg-teal-500 text-white" : "bg-gray-300"}`}
             >
               2
             </div>
@@ -139,8 +139,8 @@ const [Loading, setLoading] = useState(false)
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-full bg-indigo-600 text-white py-2 rounded-lg
-                           font-semibold hover:bg-indigo-700"
+                className="w-full bg-teal-500 text-white py-2 rounded-lg
+                           font-semibold hover:bg-teal-600"
               >
                 Next →
               </button>

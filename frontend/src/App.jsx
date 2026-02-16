@@ -16,8 +16,8 @@ import Profile from "./pages/Profile";
 import Analytics from "./pages/Analytics";
 import Contacts from "./pages/Contacts";
 import Dashboard from "./pages/Dashboard";
-import Template from "./pages/Template.jsx";
-import PromoDiscount from "./Templates/PromoDiscount.jsx";
+import CreateTemplate from "./Templates/CreateTemplate.jsx";
+import TemplateLibrary from "./Templates/TemplateLibrary";
 
 
 /* Layout */
@@ -50,36 +50,22 @@ function App() {
         <Routes>
 
           <Route path="/" element={<Home />} />
-
           <Route path="/signup" element={<Signup />} />
-
           <Route path="/login" element={<Login />} />
-
           <Route path="/dashboard" element={<Dashboard />} />
-
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/template" element={<PromoDiscount />} />
-
           <Route path="/contacts" element={<Contacts />} />
-
           <Route path="/profile" element={<Profile />} />
-
+           <Route path="/campaign/templates" element={<TemplateLibrary />} />
           <Route path="/campaign" element={<Campaign />} />
-
           <Route path="/campaigns" element={<CampaignDashboard />} />
-
           <Route path="/campaign/new" element={<CampaignName />} />
-
           <Route path="/campaign/contacts" element={<ImportContacts />} />
-
           <Route path="/campaign/type" element={<SelectType />} />
-
           <Route path="/campaign/write" element={<WriteMail />} />
-
           <Route path="/campaign/editor" element={<Editor />} />
-
           <Route path="/campaign/preview" element={<Preview />} />
-
+          <Route path="/createtemplate" element={<CreateTemplate />} />
           <Route path="/userdetails" element={<UserDetails />} />
           {/* 404 */}
           <Route

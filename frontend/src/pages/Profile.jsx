@@ -5,9 +5,6 @@ const Profile = () => {
 
   const navigate = useNavigate();
   const { user, setUser } = useDetails();
-
-  /* ================= LOGOUT ================= */
-
   const handleLogout = () => {
 
     const confirm = window.confirm("Logout from your account?");
@@ -21,8 +18,6 @@ const Profile = () => {
     navigate("/login");
   };
 
-  /* ================= UI ================= */
-
   return (
     <div className="pt-28 min-h-screen bg-gray-50 flex justify-center px-4">
 
@@ -35,7 +30,7 @@ const Profile = () => {
         {/* Avatar */}
         <div className="flex justify-center">
 
-          <div className="w-24 h-24 rounded-full bg-indigo-600 flex items-center justify-center text-white text-3xl font-bold">
+          <div className="w-24 h-24 rounded-full bg-teal-500 flex items-center justify-center text-white text-3xl font-bold">
             {user?.name?.charAt(0) || "U"}
           </div>
 

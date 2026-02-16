@@ -96,7 +96,7 @@ const SignupForm = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your username"
               className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                         focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
@@ -113,7 +113,7 @@ const SignupForm = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                         focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
@@ -133,7 +133,7 @@ const SignupForm = () => {
               placeholder="Enter your phone number"
               maxLength={10}
               className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                         focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
@@ -152,7 +152,7 @@ const SignupForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 pr-10 border rounded-lg
-                           focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                           focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
 
               <span
@@ -169,8 +169,8 @@ const SignupForm = () => {
           {/* Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg
-                       font-semibold hover:bg-indigo-700 transition"
+            className="w-full bg-teal-500 text-white py-2 rounded-lg
+                       font-semibold hover:bg-teal-600 transition"
           >
             Sign Up
           </button>
@@ -184,7 +184,7 @@ const SignupForm = () => {
           Already have an account?
 
           <span
-            className="text-indigo-600 font-medium cursor-pointer ml-1"
+            className="text-teal-500 font-medium cursor-pointer ml-1"
             onClick={() => navigate("/login")}
           >
             Login

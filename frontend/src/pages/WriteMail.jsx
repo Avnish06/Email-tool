@@ -59,7 +59,7 @@ const WriteMail = () => {
                   subject: e.target.value,
                 })
               }
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
@@ -79,14 +79,14 @@ const WriteMail = () => {
                 })
               }
               rows={8}
-              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 resize-none"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-teal-500 resize-none"
             />
           </div>
 
           {/* BUTTON */}
           <button
             onClick={goToEditor}
-            className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+            className="w-full bg-teal-500 text-white py-3 rounded-lg font-semibold hover:bg-teal-600 transition"
           >
             Design Email ✨
           </button>

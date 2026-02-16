@@ -141,7 +141,7 @@ const ImportContacts = () => {
 
               <button
                 onClick={addManual}
-                className="bg-indigo-600 text-white px-5 rounded"
+                className="bg-teal-500 text-white px-5 rounded"
               >
                 Add
               </button>
@@ -163,7 +163,7 @@ const ImportContacts = () => {
               onDrop={handleDrop}
               className={`border-2 border-dashed p-8 rounded text-center transition ${
                 dragging
-                  ? "border-indigo-500 bg-indigo-50"
+                  ? "border-teal-500 bg-teal-50"
                   : "border-gray-300"
               }`}
             >
@@ -182,7 +182,7 @@ const ImportContacts = () => {
 
               <label
                 htmlFor="file"
-                className="cursor-pointer text-indigo-600 underline"
+                className="cursor-pointer text-teal-500 underline"
               >
                 Browse File
               </label>
@@ -261,8 +261,8 @@ const MethodCard = ({
       onClick={!disabled ? onClick : undefined}
       className={`border rounded-xl p-4 text-center cursor-pointer transition ${
         active
-          ? "border-indigo-600 bg-indigo-50"
-          : "hover:border-indigo-400"
+          ? "border-teal-500 bg-teal-50"
+          : "hover:border-teal-400"
       } ${
         disabled
           ? "opacity-40 cursor-not-allowed"

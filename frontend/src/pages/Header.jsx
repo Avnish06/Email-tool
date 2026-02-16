@@ -22,7 +22,8 @@ const Header = () => {
         {/* LOGO */}
         <h1
           onClick={() => navigate("/")}
-          className="text-2xl font-bold text-indigo-600 cursor-pointer"
+          className="text-2xl font-bold cursor-pointer"
+          style={{ color: '#0ea5a4' }}
         >
           Hatbaliya Technology
         </h1>
@@ -34,28 +35,40 @@ const Header = () => {
 
             <span
               onClick={() => navigate("/campaigns")}
-              className="cursor-pointer hover:text-indigo-600"
+              className="cursor-pointer transition"
+              style={{ color: '#64748b' }}
+              onMouseEnter={(e) => e.target.style.color = '#0ea5a4'}
+              onMouseLeave={(e) => e.target.style.color = '#64748b'}
             >
               Campaigns
             </span>
 
             <span
               onClick={() => navigate("/analytics")}
-              className="cursor-pointer hover:text-indigo-600"
+              className="cursor-pointer transition"
+              style={{ color: '#64748b' }}
+              onMouseEnter={(e) => e.target.style.color = '#0ea5a4'}
+              onMouseLeave={(e) => e.target.style.color = '#64748b'}
             >
               Analytics
             </span>
 
             <span
-              onClick={() => navigate("/templates")}
-              className="cursor-pointer hover:text-indigo-600"
+              onClick={() => navigate("/campaign/templates")}
+              className="cursor-pointer transition"
+              style={{ color: '#64748b' }}
+              onMouseEnter={(e) => e.target.style.color = '#0ea5a4'}
+              onMouseLeave={(e) => e.target.style.color = '#64748b'}
             >
               Templates
             </span>
 
             <span
               onClick={() => navigate("/contacts")}
-              className="cursor-pointer hover:text-indigo-600"
+              className="cursor-pointer transition"
+              style={{ color: '#64748b' }}
+              onMouseEnter={(e) => e.target.style.color = '#0ea5a4'}
+              onMouseLeave={(e) => e.target.style.color = '#64748b'}
             >
               Contacts
             </span>
@@ -72,7 +85,8 @@ const Header = () => {
 
               <button
                 onClick={logout}
-                className="border border-indigo-600 text-indigo-600 px-4 py-1 rounded-full text-sm hover:bg-indigo-50 transition"
+                className="border px-4 py-1 rounded-full text-sm hover:bg-opacity-10 transition"
+                style={{ borderColor: '#0ea5a4', color: '#0ea5a4' }}
               >
                 Logout
               </button>
@@ -83,14 +97,16 @@ const Header = () => {
 
               <button
                 onClick={() => navigate("/login")}
-                className="border border-indigo-600 text-indigo-600 px-4 py-1 rounded-full text-sm hover:bg-indigo-50 transition"
+                className="border px-4 py-1 rounded-full text-sm hover:bg-opacity-10 transition"
+                style={{ borderColor: '#0ea5a4', color: '#0ea5a4' }}
               >
                 Login
               </button>
 
               <button
                 onClick={() => navigate("/signup")}
-                className="bg-indigo-600 text-white px-5 py-1.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition"
+                className="text-white px-5 py-1.5 rounded-full text-sm font-semibold hover:opacity-90 transition"
+                style={{ backgroundColor: '#0ea5a4' }}
               >
                 Sign Up
               </button>

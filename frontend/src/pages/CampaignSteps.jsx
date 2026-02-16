@@ -17,7 +17,7 @@ const CampaignSteps = () => {
 
   return (
     <div className="w-72 bg-white border-r px-6 py-8">
-      <h2 className="text-xl font-bold mb-8 text-indigo-600">
+      <h2 className="text-xl font-bold mb-8 text-teal-500">
         Campaign Progress
       </h2>
 
@@ -39,7 +39,7 @@ const CampaignSteps = () => {
                     isCompleted
                       ? "bg-green-500 text-white"
                       : isActive
-                      ? "bg-indigo-600 text-white"
+                      ? "bg-teal-500 text-white"
                       : isUnlocked
                       ? "bg-gray-300"
                       : "bg-gray-100"
@@ -66,9 +66,9 @@ const CampaignSteps = () => {
                 className={`text-left flex-1 font-medium
                 ${
                   isActive
-                    ? "text-indigo-600"
+                    ? "text-teal-500"
                     : isUnlocked
-                    ? "text-gray-700 hover:text-indigo-500"
+                    ? "text-gray-700 hover:text-teal-500"
                     : "text-gray-400 cursor-not-allowed"
                 }`}
               >

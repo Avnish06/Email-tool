@@ -10,9 +10,8 @@ import blocksToHtml from "../utils/blocksToHtml.js";
 const Preview = () => {
   const navigate = useNavigate();
   const { campaign, setCampaign } = useCampaign();
-
   const [loading, setLoading] = useState(false);
-
+  
   const handleSend = async () => {
     if (
       !campaign.subject ||
@@ -49,7 +48,6 @@ const Preview = () => {
       setLoading(false);
     }
   };
-
   const renderBlock = (b) => {
     const d = b.data;
 
@@ -222,7 +220,7 @@ const Preview = () => {
             <button
               disabled={loading}
               onClick={handleSend}
-              className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 disabled:opacity-60"
+              className="bg-teal-500 text-white px-6 py-2 rounded hover:bg-teal-600 disabled:opacity-60"
             >
               {loading ? "Sending..." : "Send 🚀"}
             </button>

@@ -49,22 +49,24 @@ const Campaign = () => {
 
         <button
           onClick={() => setActiveTab("create")}
-          className={`px-6 py-2 rounded-lg font-medium ${
+          className={`px-6 py-2 rounded-lg font-medium transition ${
             activeTab === "create"
-              ? "bg-indigo-600 text-white"
+              ? "text-white"
               : "bg-white border"
           }`}
+          style={activeTab === "create" ? { backgroundColor: '#0ea5a4' } : {}}
         >
           + Create Campaign
         </button>
 
         <button
           onClick={() => setActiveTab("history")}
-          className={`px-6 py-2 rounded-lg font-medium ${
+          className={`px-6 py-2 rounded-lg font-medium transition ${
             activeTab === "history"
-              ? "bg-indigo-600 text-white"
+              ? "text-white"
               : "bg-white border"
           }`}
+          style={activeTab === "history" ? { backgroundColor: '#0ea5a4' } : {}}
         >
           📂 My Campaigns
         </button>
@@ -89,7 +91,8 @@ const Campaign = () => {
 
             <button
               onClick={() => navigate("/campaign/new")}
-              className="w-full bg-indigo-600 text-white py-3 rounded hover:bg-indigo-700 transition"
+              className="w-full text-white py-3 rounded hover:opacity-90 transition"
+              style={{ backgroundColor: '#0ea5a4' }}
             >
               Start New Campaign
             </button>

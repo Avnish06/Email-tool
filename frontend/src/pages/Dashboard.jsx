@@ -147,7 +147,7 @@ const StatCard = ({ title, value, icon, loading }) => {
         {title}
       </h3>
 
-      <p className="text-3xl font-bold text-indigo-600">
+      <p className="text-3xl font-bold" style={{ color: '#0ea5a4' }}>
 
         {loading ? "..." : value}
 
@@ -173,7 +173,8 @@ const ActionCard = ({ title, desc, btn, onClick }) => {
 
       <button
         onClick={onClick}
-        className="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition"
+        className="text-white px-5 py-2 rounded hover:opacity-90 transition"
+        style={{ backgroundColor: '#0ea5a4' }}
       >
         {btn}
       </button>

@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-} from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const CampaignContext = createContext(null);
 
@@ -14,9 +10,16 @@ export const CampaignProvider = ({ children }) => {
     type: "",
     subject: "",
     content: "",
+
+    // ✅ ADD THESE
+    templateId: "",
+    templateName: "",
+    componentName: "",
+    previewImage: "",
+    fields: [],
+    blocks: []  // 🔥 REQUIRED FOR EDITOR
   });
 
-  // Track completed steps
   const [steps, setSteps] = useState({
     name: false,
     contacts: false,
@@ -40,6 +43,4 @@ export const CampaignProvider = ({ children }) => {
   );
 };
 
-export const useCampaign = () => {
-  return useContext(CampaignContext);
-};
+export const useCampaign = () => useContext(CampaignContext);

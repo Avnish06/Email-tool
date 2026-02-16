@@ -30,7 +30,7 @@ const CampaignSteps = () => {
               className={`cursor-pointer flex items-center gap-3 p-2 rounded transition
                 ${
                   isActive
-                    ? "bg-indigo-600 text-white"
+                    ? "bg-teal-500 text-white"
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
             >
@@ -38,7 +38,7 @@ const CampaignSteps = () => {
                 className={`w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold
                   ${
                     isActive
-                      ? "bg-white text-indigo-600"
+                      ? "bg-white text-teal-500"
                       : "bg-gray-300 text-gray-700"
                   }`}
               >

@@ -20,7 +20,7 @@ const CampaignDashboard = () => {
       {/* Create Campaign */}
       <button
         onClick={() => navigate("/campaign/new")}
-        className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+        className="bg-teal-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-teal-600 transition"
       >
         + Create Campaign
       </button>
@@ -28,7 +28,7 @@ const CampaignDashboard = () => {
       {/* Track Campaign */}
       <button
         onClick={() => navigate("/campaigns")}
-        className="border border-indigo-600 text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition"
+        className="border border-teal-500 text-teal-500 px-8 py-3 rounded-lg font-semibold hover:bg-teal-50 transition"
       >
         📊 Track Campaigns
       </button>

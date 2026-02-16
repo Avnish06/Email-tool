@@ -48,7 +48,10 @@ const CampaignName = () => {
                 name: e.target.value,
               })
             }
-            className="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 border rounded focus:outline-none focus:ring-2 transition"
+            style={{ '--tw-ring-color': '#0ea5a4' }}
+            onFocus={(e) => e.target.style.borderColor = '#0ea5a4'}
+            onBlur={(e) => e.target.style.borderColor = '#d1d5db'}
           />
 
           {/* Error */}
@@ -61,7 +64,8 @@ const CampaignName = () => {
           {/* Button */}
           <button
             onClick={next}
-            className="w-full bg-indigo-600 text-white py-3 rounded font-semibold hover:bg-indigo-700 transition"
+            className="w-full text-white py-3 rounded font-semibold hover:opacity-90 transition"
+            style={{ backgroundColor: '#0ea5a4' }}
           >
             Next →
           </button>
@@ -74,4 +78,3 @@ const CampaignName = () => {
   );
 };
 export default CampaignName;
-
