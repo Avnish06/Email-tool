@@ -12,13 +12,13 @@ const CampaignDashboard = () => {
       
       <main className="main-area flex-1 flex items-center justify-center p-6 relative z-10">
         <div className="center-panel-wrapper w-full max-w-[640px] flex flex-col items-center text-center gap-6">
-          <div className="panel-card bg-card border border-white/5 rounded-2xl p-10 w-full max-w-[520px] shadow-2xl backdrop-blur-sm flex flex-col items-center gap-6">
+          <div className="panel-card bg-card border border-border rounded-2xl p-10 w-full max-w-[520px] shadow-2xl backdrop-blur-sm flex flex-col items-center gap-6">
             <div className="panel-icon w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
               <Inbox size={24} />
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold tracking-tight text-white">
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">
                 Campaign Dashboard
               </h2>
               <p className="text-sm text-muted-foreground max-w-[400px]">
@@ -30,14 +30,14 @@ const CampaignDashboard = () => {
             <div className="action-row flex flex-wrap items-center justify-center gap-4">
               <button
                 onClick={() => navigate("/campaign/new")}
-                className="btn-primary flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+                className="btn-primary flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
               >
                 <Plus size={18} />
                 Create Campaign
               </button>
               <button
                 onClick={() => navigate("/campaigns")}
-                className="btn-secondary-outline border border-white/10 px-8 py-3 rounded-full text-white font-semibold hover:bg-white/5 transition-all"
+                className="btn-secondary-outline border border-border px-8 py-3 rounded-full text-foreground font-semibold hover:bg-muted transition-all"
               >
                 <BarChart2 size={18} className="mr-2 inline" />
                 Track Campaigns

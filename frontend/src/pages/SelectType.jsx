@@ -35,8 +35,8 @@ const SelectType = () => {
       <div className="pt-28 min-h-screen flex justify-center bg-background px-6 relative overflow-hidden">
         <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
         
-        <div className="bg-card max-w-3xl w-full p-10 rounded-2xl border border-white/5 shadow-2xl space-y-8 relative z-10 backdrop-blur-sm h-fit">
-          <h2 className="text-2xl font-bold text-center text-white">
+        <div className="bg-card max-w-3xl w-full p-10 rounded-2xl border border-border shadow-2xl space-y-8 relative z-10 backdrop-blur-sm h-fit">
+          <h2 className="text-2xl font-bold text-center text-foreground">
             Select Email Type 📧
           </h2>
 
@@ -49,14 +49,14 @@ const SelectType = () => {
                 type: e.target.value,
               })
             }
-            className="w-full bg-background border border-white/10 p-4 rounded-xl text-white focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
+            className="w-full bg-background border border-border p-4 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
           >
-            <option value="" className="bg-card">-- Select Type --</option>
-            <option value="Marketing" className="bg-card">Marketing</option>
-            <option value="Newsletter" className="bg-card">Newsletter</option>
-            <option value="Promotional Emails" className="bg-card">Promotional Emails</option>
-            <option value="Welcome Emails" className="bg-card">Welcome Emails</option>
-            <option value="Transactional Emails" className="bg-card">Transactional Emails</option>
+            <option value="" className="bg-background text-foreground">-- Select Type --</option>
+            <option value="Marketing" className="bg-background text-foreground">Marketing</option>
+            <option value="Newsletter" className="bg-background text-foreground">Newsletter</option>
+            <option value="Promotional Emails" className="bg-background text-foreground">Promotional Emails</option>
+            <option value="Welcome Emails" className="bg-background text-foreground">Welcome Emails</option>
+            <option value="Transactional Emails" className="bg-background text-foreground">Transactional Emails</option>
           </select>
 
           {/* SHOW OPTIONS ONLY AFTER TYPE IS SELECTED */}
@@ -69,7 +69,7 @@ const SelectType = () => {
                 className="group border border-white/5 rounded-2xl p-10 text-center cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
               >
                 <div className="text-5xl mb-6 transition-transform group-hover:scale-110">📚</div>
-                <h3 className="text-lg font-bold mb-2 text-white">
+                <h3 className="text-lg font-bold mb-2 text-foreground">
                   Select Template
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -83,7 +83,7 @@ const SelectType = () => {
                 className="group border border-white/5 rounded-2xl p-10 text-center cursor-pointer hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
               >
                 <div className="text-5xl mb-6 transition-transform group-hover:scale-110">🎨</div>
-                <h3 className="text-lg font-bold mb-2 text-white">
+                <h3 className="text-lg font-bold mb-2 text-foreground">
                   Build Custom
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">

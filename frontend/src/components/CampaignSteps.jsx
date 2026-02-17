@@ -14,12 +14,12 @@ const CampaignSteps = () => {
   const navigate = useNavigate();
 
   return (
-    <aside className="w-64 bg-white border-r min-h-screen px-5 py-6">
-      <h2 className="text-lg font-bold mb-6">
+    <aside className="w-64 bg-card border-r border-border min-h-screen px-5 py-6 shadow-sm">
+      <h2 className="text-lg font-bold mb-8 text-foreground tracking-tight">
         Campaign Progress
       </h2>
 
-      <ul className="space-y-4">
+      <ul className="space-y-3">
         {steps.map((step, index) => {
           const isActive = location.pathname === step.path;
 
@@ -27,25 +27,25 @@ const CampaignSteps = () => {
             <li
               key={index}
               onClick={() => navigate(step.path)}
-              className={`cursor-pointer flex items-center gap-3 p-2 rounded transition
+              className={`cursor-pointer group flex items-center gap-3 p-3 rounded-xl transition-all duration-200
                 ${
                   isActive
-                    ? "bg-teal-500 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary/10 text-primary border border-primary/20 shadow-sm"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent"
                 }`}
             >
               <span
-                className={`w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold
+                className={`w-7 h-7 flex items-center justify-center rounded-lg text-xs font-bold transition-colors
                   ${
                     isActive
-                      ? "bg-white text-teal-500"
-                      : "bg-gray-300 text-gray-700"
+                      ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
+                      : "bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary"
                   }`}
               >
                 {index + 1}
               </span>
 
-              <span>{step.label}</span>
+              <span className="font-medium text-sm">{step.label}</span>
             </li>
           );
         })}

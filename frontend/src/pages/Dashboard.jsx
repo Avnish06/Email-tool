@@ -51,16 +51,17 @@ const Dashboard = () => {
   /* ================= UI ================= */
 
   return (
-    <div className="pt-28 px-6 min-h-screen bg-gray-50">
+    <div className="pt-28 px-6 min-h-screen bg-background relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto space-y-8">
 
         {/* HEADER */}
-        <h1 className="text-3xl font-bold text-gray-800">
+        <h1 className="text-3xl font-bold text-foreground">
           Dashboard 📊
         </h1>
 
-        <p className="text-gray-500">
+        <p className="text-muted-foreground">
           Overview of your email marketing system
         </p>
 
@@ -137,17 +138,17 @@ export default Dashboard;
 const StatCard = ({ title, value, icon, loading }) => {
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow text-center space-y-2">
+    <div className="bg-card p-6 rounded-xl border border-border shadow text-center space-y-2 relative z-10 backdrop-blur-sm">
 
       <div className="text-4xl">
         {icon}
       </div>
 
-      <h3 className="text-gray-600 text-sm">
+      <h3 className="text-muted-foreground text-sm uppercase tracking-wider font-semibold">
         {title}
       </h3>
 
-      <p className="text-3xl font-bold" style={{ color: '#0ea5a4' }}>
+      <p className="text-3xl font-bold text-primary">
 
         {loading ? "..." : value}
 
@@ -161,20 +162,19 @@ const StatCard = ({ title, value, icon, loading }) => {
 const ActionCard = ({ title, desc, btn, onClick }) => {
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow space-y-3">
+    <div className="bg-card p-6 rounded-xl border border-border shadow-xl space-y-3 relative z-10 backdrop-blur-sm">
 
-      <h3 className="text-xl font-semibold">
+      <h3 className="text-xl font-semibold text-foreground">
         {title}
       </h3>
 
-      <p className="text-gray-500 text-sm">
+      <p className="text-muted-foreground text-sm">
         {desc}
       </p>
 
       <button
         onClick={onClick}
-        className="text-white px-5 py-2 rounded hover:opacity-90 transition"
-        style={{ backgroundColor: '#0ea5a4' }}
+        className="bg-primary text-primary-foreground px-5 py-2 rounded-lg font-semibold hover:opacity-90 transition-all shadow-md shadow-primary/10"
       >
         {btn}
       </button>

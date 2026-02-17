@@ -55,16 +55,17 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#eafff4] via-[#d6fff0] to-[#b8ffe6] flex items-center justify-center px-6">
+    <div className="min-h-screen bg-background flex items-center justify-center px-6 relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-md bg-white/80 backdrop-blur rounded-2xl shadow-xl p-8">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl shadow-xl p-8 relative z-10 backdrop-blur-sm">
 
         {/* Header */}
-        <h2 className="text-2xl font-bold text-center text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-center text-foreground mb-2">
           Welcome Back
         </h2>
 
-        <p className="text-center text-gray-600 mb-8">
+        <p className="text-center text-muted-foreground mb-8 text-sm">
           Login to your Hatbaliya Technology account
         </p>
 
@@ -74,7 +75,7 @@ const Login = () => {
           {/* Email */}
           <div>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Email
             </label>
 
@@ -83,7 +84,7 @@ const Login = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
             />
 
           </div>
@@ -91,7 +92,7 @@ const Login = () => {
           {/* Password */}
           <div>
 
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Password
             </label>
 
@@ -100,7 +101,7 @@ const Login = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
             />
 
           </div>
@@ -109,7 +110,7 @@ const Login = () => {
           <div className="text-right">
 
             <span
-              className="text-sm text-teal-600 hover:underline cursor-pointer"
+              className="text-sm text-primary font-medium hover:underline cursor-pointer"
             >
               Forgot password?
             </span>
@@ -120,7 +121,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-teal-600 text-white py-2 rounded-lg font-semibold hover:bg-teal-700 transition shadow-md disabled:opacity-60"
+            className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
@@ -128,11 +129,11 @@ const Login = () => {
         </form>
 
         {/* Footer */}
-        <p className="text-sm text-center text-gray-600 mt-6">
+        <p className="text-sm text-center text-muted-foreground mt-6">
           Don’t have an account?
 
           <span
-            className="text-teal-600 font-medium cursor-pointer ml-1"
+            className="text-primary font-bold cursor-pointer ml-1 hover:underline"
             onClick={() => navigate("/signup")}
           >
             Sign up

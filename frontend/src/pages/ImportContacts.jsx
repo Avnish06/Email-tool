@@ -97,11 +97,11 @@ const ImportContacts = () => {
     <div className="pt-28 px-6 min-h-screen bg-background text-foreground relative overflow-hidden">
       <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
       
-      <h1 className="text-3xl font-bold text-center mb-8 relative z-10 text-white">
+      <h1 className="text-3xl font-bold text-center mb-8 relative z-10 text-foreground">
         Import Contacts 📥
       </h1>
 
-      <div className="max-w-6xl mx-auto bg-card border border-white/5 shadow-2xl rounded-2xl p-8 space-y-8 relative z-10 backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto bg-card border border-border shadow-2xl rounded-2xl p-8 space-y-8 relative z-10 backdrop-blur-sm">
         <div>
           <h2 className="font-semibold mb-4 text-muted-foreground">
             Select Import Method
@@ -130,7 +130,7 @@ const ImportContacts = () => {
         
         {method === "manual" && (
           <div className="space-y-4">
-            <h3 className="font-semibold text-white">Add Manually</h3>
+            <h3 className="font-semibold text-foreground">Add Manually</h3>
 
             <div className="flex gap-3">
               <input
@@ -139,12 +139,12 @@ const ImportContacts = () => {
                   setManualEmail(e.target.value)
                 }
                 placeholder="Enter email"
-                className="flex-1 bg-background border border-white/10 p-3 rounded-lg text-white focus:border-primary transition-all outline-none"
+                className="flex-1 bg-background border border-border p-3 rounded-lg text-foreground focus:border-primary transition-all outline-none"
               />
 
               <button
                 onClick={addManual}
-                className="bg-primary text-white px-8 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+                className="bg-primary text-primary-foreground px-8 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
               >
                 Add
               </button>
@@ -154,7 +154,7 @@ const ImportContacts = () => {
 
         {method === "excel" && (
           <div className="space-y-4">
-            <h3 className="font-semibold text-white">
+            <h3 className="font-semibold text-foreground">
               Upload Excel / CSV
             </h3>
 
@@ -171,7 +171,7 @@ const ImportContacts = () => {
                   : "border-white/10 hover:border-white/20"
               }`}
             >
-              <p className="mb-2 text-white font-medium">Drag & Drop File</p>
+              <p className="mb-2 text-foreground font-medium">Drag & Drop File</p>
               <p className="text-sm text-muted-foreground mb-4">
                 or click below
               </p>
@@ -197,16 +197,16 @@ const ImportContacts = () => {
         {campaign.contacts.length > 0 && (
           <div className="pt-4 border-t border-white/5">
             <div className="flex justify-between mb-4 text-sm text-muted-foreground">
-              <p>Total Emails: <span className="text-white font-bold">{campaign.contacts.length}</span></p>
+              <p>Total Emails: <span className="text-foreground font-bold">{campaign.contacts.length}</span></p>
               <p className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-success"></span>
                 Auto Deduplicated
               </p>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-white/5">
+            <div className="overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm text-left">
-                <thead className="bg-white/5 text-muted-foreground">
+                <thead className="bg-muted text-muted-foreground">
                   <tr>
                     <th className="px-4 py-3 font-medium">#</th>
                     <th className="px-4 py-3 font-medium">Email</th>
@@ -214,13 +214,13 @@ const ImportContacts = () => {
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-border">
                   {campaign.contacts.map((email, i) => (
                     <tr key={email} className="hover:bg-white/[0.02] transition-colors">
                       <td className="px-4 py-3 text-muted-foreground font-mono">
                         {String(i + 1).padStart(2, '0')}
                       </td>
-                      <td className="px-4 py-3 text-white">
+                      <td className="px-4 py-3 text-foreground">
                         {email}
                       </td>
                       <td className="px-4 py-3 text-center">
@@ -241,12 +241,12 @@ const ImportContacts = () => {
               <button
                 onClick={storeContact}
                 disabled={campaign.contacts.length === 0}
-                className="bg-primary text-white px-10 py-3 rounded-full font-bold hover:opacity-90 disabled:opacity-50 transition-all shadow-lg shadow-primary/20"
+                className="bg-primary text-primary-foreground px-10 py-3 rounded-full font-bold hover:opacity-90 disabled:opacity-50 transition-all shadow-lg shadow-primary/20"
               >
                 Add Contact
               </button>
               <button 
-                className="border border-white/10 text-white px-10 py-3 rounded-full font-bold hover:bg-white/5 disabled:opacity-50 transition-all"
+                className="border border-border text-foreground px-10 py-3 rounded-full font-bold hover:bg-muted disabled:opacity-50 transition-all"
                 onClick={()=>navigate("/campaign/type")}
               >
                 Next Page
@@ -274,7 +274,7 @@ const MethodCard = ({
       className={`border rounded-xl p-6 text-center cursor-pointer transition-all duration-300 ${
         active
           ? "border-primary bg-primary/10 shadow-lg shadow-primary/5 scale-[1.02]"
-          : "border-white/5 hover:border-white/10 hover:bg-white/[0.02]"
+          : "border-border hover:border-primary/30 hover:bg-primary/5"
       } ${
         disabled
           ? "opacity-30 cursor-not-allowed"
@@ -282,7 +282,7 @@ const MethodCard = ({
       }`}
     >
       <div className="text-4xl mb-3">{icon}</div>
-      <p className={`font-semibold text-sm ${active ? "text-white" : "text-muted-foreground"}`}>{title}</p>
+      <p className={`font-semibold text-sm ${active ? "text-primary" : "text-muted-foreground"}`}>{title}</p>
 
       {disabled && (
         <p className="text-[10px] text-muted-foreground/60 mt-1 font-medium tracking-wider uppercase">

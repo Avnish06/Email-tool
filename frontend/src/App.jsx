@@ -32,7 +32,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 /* API URL */
-export const AppUrl = "http://localhost:8001/api/v1";
+export const AppUrl = import.meta.env.VITE_API_URL || "http://localhost:8001/api/v1";
 
 function App() {
   return (

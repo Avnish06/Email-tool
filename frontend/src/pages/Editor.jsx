@@ -91,7 +91,7 @@ useEffect(() => {
         return {
           text: "Write something...",
           size: 16,
-          color: "#111827",
+          color: "#1c1917",
           align: "left",
           bold: false,
           italic: false,
@@ -109,7 +109,7 @@ useEffect(() => {
         return {
           text: "Click Here",
           link: "#",
-          bg: "#4f46e5",
+          bg: "#0d9488",
           color: "#ffffff",
           radius: 8,
         };
@@ -181,13 +181,14 @@ useEffect(() => {
 
   return (
     <CampaignLayout>
-      <div className="pt-24 px-6 min-h-screen bg-gradient-to-br from-teal-50 to-purple-100">
-        <h1 className="text-3xl font-bold text-center mb-6 text-teal-600">
+      <div className="pt-24 px-6 min-h-screen bg-background relative overflow-hidden">
+        <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
+        <h1 className="text-3xl font-bold text-center mb-6 text-foreground relative z-10">
           🚀 Pro Email Designer
         </h1>
 
         {/* SUBJECT */}
-        <div className="max-w-6xl mx-auto mb-4">
+        <div className="max-w-6xl mx-auto mb-4 relative z-10">
           <input
             value={campaign.subject}
             onChange={(e) =>
@@ -196,14 +197,14 @@ useEffect(() => {
                 subject: e.target.value,
               })
             }
-            className="w-full p-4 border rounded-xl shadow focus:ring-2 focus:ring-teal-500"
+            className="w-full p-4 bg-background border border-border rounded-xl shadow focus:ring-2 focus:ring-primary text-foreground outline-none transition-all"
             placeholder="Email Subject"
           />
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 relative z-10">
           {/* LEFT PANEL */}
-          <div className="bg-white p-5 rounded-xl shadow-xl">
+          <div className="bg-card p-5 rounded-xl border border-border shadow-xl">
             {/* TOOLBAR */}
             <div className="flex flex-wrap gap-2 mb-5">
               <Tool onClick={() => addBlock("text")}>📝 Text</Tool>
@@ -221,7 +222,7 @@ useEffect(() => {
                   onDragStart={() => onDragStart(b.id)}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={() => onDrop(b.id)}
-                  className="border p-3 rounded-lg bg-gray-50 hover:shadow cursor-move"
+                  className="border border-border p-3 rounded-lg bg-background hover:shadow-md cursor-move transition-all"
                 >
                   <Block block={b} update={update} remove={remove} />
                 </div>
@@ -230,14 +231,14 @@ useEffect(() => {
 
             <button
               onClick={save}
-              className="w-full mt-6 bg-teal-500 text-white py-3 rounded-xl font-semibold hover:bg-teal-600 transition"
+              className="w-full mt-6 bg-primary text-primary-foreground py-3 rounded-xl font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
             >
               Save & Preview → 🚀
             </button>
           </div>
 
           {/* RIGHT PANEL */}
-          <div className="bg-white p-4 rounded-xl shadow-xl flex justify-center">
+          <div className="bg-card p-4 rounded-xl border border-border shadow-xl flex justify-center">
             <MobilePreview subject={campaign.subject} blocks={blocks} />
           </div>
         </div>
@@ -251,7 +252,7 @@ useEffect(() => {
 const Tool = ({ children, onClick }) => (
   <button
     onClick={onClick}
-    className="px-4 py-2 border rounded-lg bg-teal-50 hover:bg-indigo-100 font-medium"
+    className="px-4 py-2 border border-border rounded-lg bg-background text-foreground hover:bg-muted hover:border-primary/50 font-medium transition-all"
   >
     {children}
   </button>
@@ -279,7 +280,7 @@ const Block = ({ block, update, remove }) => {
             onChange={(e) =>
               update(block.id, { ...d, text: e.target.value })
             }
-            className="w-full border p-2 rounded"
+            className="w-full bg-background border border-border p-2 rounded text-foreground focus:border-primary outline-none"
           />
 
           <div className="flex flex-wrap gap-2 text-sm items-center">
@@ -291,7 +292,7 @@ const Block = ({ block, update, remove }) => {
               onChange={(e) =>
                 update(block.id, { ...d, size: +e.target.value })
               }
-              className="w-16 border px-1 rounded"
+              className="w-16 bg-background border border-border px-1 rounded text-foreground"
             />
 
             <input
@@ -307,11 +308,11 @@ const Block = ({ block, update, remove }) => {
               onChange={(e) =>
                 update(block.id, { ...d, align: e.target.value })
               }
-              className="border rounded px-1"
+              className="bg-background border border-border rounded px-1 text-foreground"
             >
-              <option value="left">Left</option>
-              <option value="center">Center</option>
-              <option value="right">Right</option>
+              <option value="left" className="bg-card">Left</option>
+              <option value="center" className="bg-card">Center</option>
+              <option value="right" className="bg-card">Right</option>
             </select>
 
             <button

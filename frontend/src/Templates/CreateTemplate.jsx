@@ -158,11 +158,12 @@ const CreateTemplate = () => {
 
   return (
 
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+    <div className="min-h-screen bg-background py-10 px-4 relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-lg p-8">
+      <div className="max-w-5xl mx-auto bg-card rounded-xl border border-border shadow-lg p-8 relative z-10 backdrop-blur-sm">
 
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+        <h1 className="text-3xl font-bold text-foreground mb-6">
           Create Email Template
         </h1>
 
@@ -177,7 +178,7 @@ const CreateTemplate = () => {
               placeholder="Template Name"
               value={formData.name}
               onChange={handleChange}
-              className="border p-3 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="bg-background border border-border p-3 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none transition-all"
               required
             />
 
@@ -187,7 +188,7 @@ const CreateTemplate = () => {
               placeholder="Category (Marketing, Transactional)"
               value={formData.category}
               onChange={handleChange}
-              className="border p-3 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="bg-background border border-border p-3 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none transition-all"
               required
             />
 
@@ -197,7 +198,7 @@ const CreateTemplate = () => {
               placeholder="Component Name (ElegantReceipt)"
               value={formData.componentName}
               onChange={handleChange}
-              className="border p-3 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="bg-background border border-border p-3 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none transition-all"
               required
             />
 
@@ -206,7 +207,7 @@ const CreateTemplate = () => {
           {/* IMAGE */}
           <div>
 
-            <label className="block font-medium mb-2">
+            <label className="block font-medium mb-2 text-foreground">
               Preview Image
             </label>
 
@@ -214,7 +215,7 @@ const CreateTemplate = () => {
               type="file"
               accept="image/*"
               onChange={handleImageChange}
-              className="border p-2 rounded-lg w-full"
+              className="bg-background border border-border p-2 rounded-lg w-full text-foreground"
             />
 
             {previewUrl && (
@@ -230,7 +231,7 @@ const CreateTemplate = () => {
           {/* FIELDS */}
           <div>
 
-            <h2 className="text-xl font-semibold mb-4">
+            <h2 className="text-xl font-semibold mb-4 text-foreground">
               Template Fields
             </h2>
 
@@ -240,7 +241,7 @@ const CreateTemplate = () => {
 
                 <div
                   key={index}
-                  className="border p-4 rounded-lg bg-gray-50"
+                  className="border border-border p-4 rounded-lg bg-background"
                 >
 
                   <div className="grid md:grid-cols-2 gap-3 mb-3">
@@ -250,7 +251,7 @@ const CreateTemplate = () => {
                       placeholder="Variable Name"
                       value={field.name}
                       onChange={(e) => handleFieldChange(index, e)}
-                      className="border p-2 rounded-lg"
+                      className="bg-background border border-border p-2 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
                     />
 
                     <input
@@ -258,7 +259,7 @@ const CreateTemplate = () => {
                       placeholder="Label"
                       value={field.label}
                       onChange={(e) => handleFieldChange(index, e)}
-                      className="border p-2 rounded-lg"
+                      className="bg-background border border-border p-2 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
                     />
 
                   </div>
@@ -269,7 +270,7 @@ const CreateTemplate = () => {
                       name="type"
                       value={field.type}
                       onChange={(e) => handleFieldChange(index, e)}
-                      className="border p-2 rounded-lg"
+                      className="bg-background border border-border p-2 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
                     >
                       <option value="text">Text</option>
                       <option value="image">Image</option>
@@ -283,7 +284,7 @@ const CreateTemplate = () => {
                       placeholder="Default Value"
                       value={field.defaultValue}
                       onChange={(e) => handleFieldChange(index, e)}
-                      className="border p-2 rounded-lg"
+                      className="bg-background border border-border p-2 rounded-lg text-foreground focus:ring-2 focus:ring-primary outline-none"
                     />
 
                   </div>
@@ -316,7 +317,7 @@ const CreateTemplate = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
           >
             {loading ? "Creating Template..." : "Create Template"}
           </button>

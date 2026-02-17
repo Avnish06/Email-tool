@@ -29,7 +29,7 @@ const CampaignName = () => {
         
         <div className="bg-card border border-white/5 p-10 rounded-2xl shadow-2xl max-w-md w-full space-y-6 relative z-10 backdrop-blur-sm">
           <div className="space-y-2 text-center">
-            <h2 className="text-2xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl font-bold text-foreground tracking-tight">
               Create New Campaign
             </h2>
             <p className="text-sm text-muted-foreground">
@@ -49,7 +49,7 @@ const CampaignName = () => {
                   name: e.target.value,
                 })
               }
-              className="w-full bg-background border border-white/10 p-4 rounded-xl text-white focus:outline-none focus:border-primary transition-all shadow-inner"
+              className="w-full bg-background border border-border p-4 rounded-xl text-foreground focus:outline-none focus:border-primary transition-all shadow-inner"
             />
 
             {/* Error */}
@@ -62,7 +62,7 @@ const CampaignName = () => {
             {/* Button */}
             <button
               onClick={next}
-              className="w-full bg-primary text-white py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2"
+              className="w-full bg-primary text-primary-foreground py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-all flex items-center justify-center gap-2"
             >
               Continue
               <span className="text-lg">→</span>

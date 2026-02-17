@@ -23,6 +23,9 @@ userDetails:{
  type:mongoose.Schema.Types.ObjectId,
  ref:'Userdetail'
 },
+Otp:{
+   type: Number
+},
 contacts:[{
    type: String
 }]

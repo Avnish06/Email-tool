@@ -71,12 +71,13 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+      <div className="w-full max-w-md bg-card border border-border rounded-2xl shadow-xl p-8 relative z-10 backdrop-blur-sm">
 
         {/* Header */}
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <h2 className="text-2xl font-bold text-center text-foreground mb-6">
           Create an Account
         </h2>
 
@@ -86,7 +87,7 @@ const SignupForm = () => {
 
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Username
             </label>
 
@@ -95,15 +96,15 @@ const SignupForm = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your username"
-              className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground
+                         focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
             />
           </div>
 
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Email
             </label>
 
@@ -112,15 +113,15 @@ const SignupForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground
+                         focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
             />
           </div>
 
 
           {/* Phone Number */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Phone Number
             </label>
 
@@ -132,15 +133,15 @@ const SignupForm = () => {
               }
               placeholder="Enter your phone number"
               maxLength={10}
-              className="w-full px-4 py-2 border rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground
+                         focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
             />
           </div>
 
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-muted-foreground mb-1">
               Password
             </label>
 
@@ -151,14 +152,14 @@ const SignupForm = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="w-full px-4 py-2 pr-10 border rounded-lg
-                           focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-2 pr-10 bg-background border border-border rounded-lg text-foreground
+                           focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
               />
 
               <span
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2
-                           cursor-pointer text-gray-500 hover:text-gray-700"
+                           cursor-pointer text-muted-foreground hover:text-foreground transition-colors"
               >
               </span>
 
@@ -169,8 +170,8 @@ const SignupForm = () => {
           {/* Button */}
           <button
             type="submit"
-            className="w-full bg-teal-500 text-white py-2 rounded-lg
-                       font-semibold hover:bg-teal-600 transition"
+            className="w-full bg-primary text-primary-foreground py-3 rounded-lg
+                       font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
           >
             Sign Up
           </button>
@@ -179,12 +180,12 @@ const SignupForm = () => {
 
 
         {/* Footer */}
-        <p className="text-sm text-center text-gray-600 mt-6">
+        <p className="text-sm text-center text-muted-foreground mt-6">
 
           Already have an account?
 
           <span
-            className="text-teal-500 font-medium cursor-pointer ml-1"
+            className="text-primary font-bold cursor-pointer ml-1 hover:underline"
             onClick={() => navigate("/login")}
           >
             Login

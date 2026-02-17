@@ -92,12 +92,13 @@ const Contacts = () => {
     });
   };
   return (
-    <div className="pt-28 px-6 min-h-screen bg-gray-50">
-      <h1 className="text-3xl font-bold text-center mb-8">
+    <div className="pt-28 px-6 min-h-screen bg-background relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
+      <h1 className="text-3xl font-bold text-center mb-8 text-foreground relative z-10">
         Import Contacts 📥
       </h1>
 
-      <div className="max-w-6xl mx-auto bg-white shadow rounded-xl p-6 space-y-8">
+      <div className="max-w-6xl mx-auto bg-card border border-border shadow-xl rounded-xl p-6 space-y-8 relative z-10 backdrop-blur-sm">
         <div>
           <h2 className="font-semibold mb-4">
             Select Import Method
@@ -125,7 +126,7 @@ const Contacts = () => {
         </div>
         {method === "manual" && (
           <div className="space-y-4">
-            <h3 className="font-semibold">Add Manually</h3>
+            <h3 className="font-semibold text-foreground">Add Manually</h3>
 
             <div className="flex gap-3">
               <input
@@ -134,12 +135,12 @@ const Contacts = () => {
                   setManualEmail(e.target.value)
                 }
                 placeholder="Enter email"
-                className="flex-1 border p-2 rounded"
+                className="flex-1 bg-background border border-border p-2 rounded text-foreground outline-none focus:border-primary transition-all"
               />
 
               <button
                 onClick={addManual}
-                className="bg-teal-500 text-white px-5 rounded"
+                className="bg-primary text-primary-foreground px-5 rounded-lg font-semibold hover:opacity-90 transition-all shadow-md shadow-primary/10"
               >
                 Add
               </button>
@@ -148,7 +149,7 @@ const Contacts = () => {
         )}
         {method === "excel" && (
           <div className="space-y-4">
-            <h3 className="font-semibold">
+            <h3 className="font-semibold text-foreground">
               Upload Excel / CSV
             </h3>
 
@@ -159,14 +160,14 @@ const Contacts = () => {
               }}
               onDragLeave={() => setDragging(false)}
               onDrop={handleDrop}
-              className={`border-2 border-dashed p-8 rounded text-center transition ${
+              className={`border-2 border-dashed p-8 rounded-xl text-center transition-all ${
                 dragging
-                  ? "border-teal-500 bg-teal-50"
-                  : "border-gray-300"
+                  ? "border-primary bg-primary/10 shadow-lg shadow-primary/5"
+                  : "border-border hover:border-primary/30 hover:bg-accent/5"
               }`}
             >
-              <p className="mb-2">Drag & Drop File</p>
-              <p className="text-sm text-gray-500 mb-3">
+              <p className="mb-2 text-foreground font-medium">Drag & Drop File</p>
+              <p className="text-sm text-muted-foreground mb-3">
                 or click below
               </p>
 
@@ -180,7 +181,7 @@ const Contacts = () => {
 
               <label
                 htmlFor="file"
-                className="cursor-pointer text-teal-500 underline"
+                className="cursor-pointer inline-flex items-center px-6 py-2 rounded-full border border-primary/50 text-primary text-sm font-medium hover:bg-primary/5 transition-all outline-none"
               >
                 Browse File
               </label>
@@ -189,34 +190,34 @@ const Contacts = () => {
         )}
         {campaign.contacts.length > 0 && (
           <div>
-            <div className="flex justify-between mb-2 text-sm text-gray-600">
-              <p>Total: {campaign.contacts.length}</p>
+            <div className="flex justify-between mb-2 text-sm text-muted-foreground">
+              <p>Total: <span className="text-foreground font-bold">{campaign.contacts.length}</span></p>
               <p>Auto Deduplicated</p>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full border text-sm">
-                <thead className="bg-gray-100">
+            <div className="overflow-x-auto border border-border rounded-xl">
+              <table className="w-full text-sm">
+                <thead className="bg-muted/50 text-muted-foreground">
                   <tr>
-                    <th className="border p-2">#</th>
-                    <th className="border p-2">Email</th>
-                    <th className="border p-2">Action</th>
+                    <th className="px-4 py-2 text-left font-medium">#</th>
+                    <th className="px-4 py-2 text-left font-medium">Email</th>
+                    <th className="px-4 py-2 text-center font-medium">Action</th>
                   </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="divide-y divide-border">
                   {campaign.contacts.map((email, i) => (
-                    <tr key={email}>
-                      <td className="border p-2">
-                        {i + 1}
+                    <tr key={email} className="hover:bg-accent/5 transition-colors">
+                      <td className="px-4 py-2 text-muted-foreground font-mono">
+                        {String(i + 1).padStart(2, '0')}
                       </td>
-                      <td className="border p-2">
+                      <td className="px-4 py-2 text-foreground">
                         {email}
                       </td>
-                      <td className="border p-2 text-center">
+                      <td className="px-4 py-2 text-center">
                         <button
                           onClick={() => removeEmail(email)}
-                          className="text-red-500 hover:underline"
+                          className="text-destructive/80 hover:text-destructive transition-colors text-xs font-medium"
                         >
                           Remove
                         </button>
@@ -232,7 +233,7 @@ const Contacts = () => {
               <button
                 onClick={storeContact}
                 disabled={campaign.contacts.length === 0}
-                className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
+                className="bg-primary text-primary-foreground px-8 py-2 rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20 disabled:opacity-50"
               >
                 Add Contact
               </button>
@@ -254,10 +255,10 @@ const MethodCard = ({
   return (
     <div
       onClick={!disabled ? onClick : undefined}
-      className={`border rounded-xl p-4 text-center cursor-pointer transition ${
+      className={`border rounded-xl p-4 text-center cursor-pointer transition-all duration-300 ${
         active
-          ? "border-teal-500 bg-teal-50"
-          : "hover:border-teal-400"
+          ? "border-primary bg-primary/10 shadow-lg shadow-primary/5 scale-[1.02]"
+          : "border-border hover:border-primary/30 hover:bg-primary/5"
       } ${
         disabled
           ? "opacity-40 cursor-not-allowed"
@@ -265,10 +266,10 @@ const MethodCard = ({
       }`}
     >
       <div className="text-3xl mb-2">{icon}</div>
-      <p className="font-medium">{title}</p>
+      <p className={`font-medium ${active ? "text-primary" : "text-muted-foreground"}`}>{title}</p>
 
       {disabled && (
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-[10px] text-muted-foreground/60 mt-1 uppercase tracking-wider">
           Coming Soon
         </p>
       )}

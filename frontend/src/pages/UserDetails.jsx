@@ -36,13 +36,14 @@ const [Loading, setLoading] = useState(false)
    }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 relative overflow-hidden">
+      <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8">
+      <div className="w-full max-w-xl bg-card border border-border shadow-xl rounded-2xl p-8 relative z-10 backdrop-blur-sm">
 
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-center mb-6">
+        <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
           Complete Your Profile
         </h2>
 
@@ -52,16 +53,16 @@ const [Loading, setLoading] = useState(false)
 
           <div className="flex gap-3">
 
-            <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center
-              ${step === 1 ? "bg-teal-500 text-white" : "bg-gray-300"}`}
+             <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all
+              ${step === 1 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-muted text-muted-foreground"}`}
             >
               1
             </div>
 
             <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center
-              ${step === 2 ? "bg-teal-500 text-white" : "bg-gray-300"}`}
+              className={`w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all
+              ${step === 2 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" : "bg-muted text-muted-foreground"}`}
             >
               2
             </div>
@@ -79,16 +80,16 @@ const [Loading, setLoading] = useState(false)
 
             <>
 
-              {/* Full Name */}
+               {/* Full Name */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Full Name
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter full name"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={fullName}
                   onChange={(e)=>setFullName(e.target.value)}
 
@@ -96,14 +97,14 @@ const [Loading, setLoading] = useState(false)
               </div>
 
 
-              {/* Role */}
+               {/* Role */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Role
                 </label>
 
-                <select
-                  className="w-full px-4 py-2 border rounded-lg"
+                 <select
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={role}
                   onChange={(e)=>setRole(e.target.value)}
                 >
@@ -118,16 +119,16 @@ const [Loading, setLoading] = useState(false)
               </div>
 
 
-              {/* Company */}
+               {/* Company */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Company Name
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter company name"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={companyName}
                   onChange={(e)=>setcompanyName(e.target.value)}
 
@@ -135,12 +136,12 @@ const [Loading, setLoading] = useState(false)
               </div>
 
 
-              {/* Next */}
+               {/* Next */}
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-full bg-teal-500 text-white py-2 rounded-lg
-                           font-semibold hover:bg-teal-600"
+                className="w-full bg-primary text-primary-foreground py-3 rounded-lg
+                           font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
               >
                 Next →
               </button>
@@ -154,96 +155,96 @@ const [Loading, setLoading] = useState(false)
 
             <>
 
-              {/* Address */}
+               {/* Address */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Address
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter address"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={address}
                   onChange={(e)=> setAddress(e.target.value)}
                 />
               </div>
 
 
-              {/* State */}
+               {/* State */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   State
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter state"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={state}
                   onChange={(e)=>setState(e.target.value)}
                 />
               </div>
 
 
-              {/* City */}
+               {/* City */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   City
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter city"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={city}
                   onChange={(e)=>setCity(e.target.value)}
                 />
               </div>
 
 
-              {/* Postcode */}
+               {/* Postcode */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Postcode
                 </label>
 
-                <input
+                 <input
                   type="Number"
                   placeholder="Enter postcode"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={postcode}
                   onChange={(e)=>setPostcode(e.target.value)}
                 />
               </div>
 
 
-              {/* Contact Size */}
+               {/* Contact Size */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Contact Size
                 </label>
 
-                <input
+                 <input
                   type="number"
                   placeholder="Enter contact size"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={contactsize}
                   onChange={(e)=>setContactsize(e.target.value)}
                 />
               </div>
 
 
-              {/* Industry */}
+               {/* Industry */}
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-medium mb-1 text-muted-foreground">
                   Industry Type
                 </label>
 
-                <input
+                 <input
                   type="text"
                   placeholder="Enter industry type"
-                  className="w-full px-4 py-2 border rounded-lg"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner"
                   value={industrytype}
                   onChange={(e)=>setIndustrytype(e.target.value)}
                 />
@@ -251,21 +252,21 @@ const [Loading, setLoading] = useState(false)
 
 
               {/* Buttons */}
-              <div className="flex gap-4">
+               <div className="flex gap-4">
 
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="w-1/2 bg-gray-400 text-white py-2 rounded-lg
-                             hover:bg-gray-500"
+                  className="w-1/2 bg-muted text-muted-foreground py-3 rounded-lg font-bold
+                             hover:bg-muted/80 transition-all border border-border"
                 >
                   ← Back
                 </button>
 
                 <button
                   type="button"
-                  className="w-1/2 bg-green-600 text-white py-2 rounded-lg
-                             font-semibold hover:bg-green-700"
+                  className="w-1/2 bg-primary text-primary-foreground py-3 rounded-lg
+                             font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
                              onClick={submitForm}
                 >
                   Submit 

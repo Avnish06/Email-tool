@@ -4,63 +4,42 @@ export default {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        // Primary Colors - Sky Blue (Matching Mockup)
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--primary)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: '#0ea5e9',
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
-        // Neutral Colors - Deep Blue/Dark Mode
-        background: '#0b1121',
-        foreground: '#ffffff',
-        border: '#334155',
-        input: '#0f1724',
-        muted: {
-          DEFAULT: '#1e293b',
-          foreground: '#94a3b8',
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: '#1e293b',
-          foreground: '#94a3b8',
-        },
-        card: {
-          DEFAULT: '#111827',
-          foreground: '#ffffff',
-        },
-        // Sidebar Colors - Dark mode
-        sidebar: {
-          DEFAULT: '#08101a',
-          foreground: '#9fbfda',
-          primary: '#062433',
-          'primary-foreground': '#dff7ff',
-        },
-        // Status Colors
-        success: {
-          DEFAULT: '#10b981',
-          foreground: '#031914',
-        },
-        warning: {
-          DEFAULT: '#f59e0b',
-          foreground: '#2b1500',
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: '#ef4444',
-          foreground: '#2b0505',
+          DEFAULT: "var(--destructive, #ef4444)",
+          foreground: "var(--destructive-foreground, #ffffff)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
         },
         accent: {
-          DEFAULT: '#38bdf8',
-          foreground: '#021033',
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground, #ffffff)",
+        },
+        popover: {
+          DEFAULT: "var(--popover, var(--card))",
+          foreground: "var(--popover-foreground, var(--card-foreground))",
+        },
+        card: {
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
       },
       fontFamily: {

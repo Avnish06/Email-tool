@@ -111,7 +111,7 @@ const Preview = () => {
         );
 
       case "divider":
-        return <hr className="my-4 border-gray-300" />;
+        return <hr className="my-4 border-border" />;
 
       default:
         return null;
@@ -119,11 +119,12 @@ const Preview = () => {
   };
   return (
     <CampaignLayout>
-      <div className="pt-24 min-h-screen bg-gray-100 flex justify-center px-4">
+      <div className="pt-24 min-h-screen bg-background flex justify-center px-4 relative overflow-hidden">
+        <div className="bg-grid absolute inset-0 opacity-20 pointer-events-none" />
 
-        <div className="bg-white max-w-4xl w-full p-8 rounded-xl shadow space-y-6">
+        <div className="bg-card max-w-4xl w-full p-8 rounded-xl border border-border shadow-2xl space-y-6 relative z-10 backdrop-blur-sm h-fit">
 
-          <h1 className="text-2xl font-bold text-center">
+          <h1 className="text-2xl font-bold text-center text-foreground">
             Campaign Preview 📱
           </h1>
 
@@ -138,7 +139,7 @@ const Preview = () => {
               >
 
                 {/* STATUS BAR */}
-                <div className="h-7 bg-gray-100 flex justify-between px-4 text-xs items-center">
+                <div className="h-7 bg-muted/30 flex justify-between px-4 text-xs items-center text-muted-foreground">
 
                   <span>12:45</span>
 
@@ -151,7 +152,7 @@ const Preview = () => {
                 </div>
 
                 {/* APP HEADER */}
-                <div className="flex items-center gap-3 px-4 py-3 border-b">
+                <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-card text-foreground">
 
                   <button>←</button>
 
@@ -162,9 +163,9 @@ const Preview = () => {
                 </div>
 
                 {/* EMAIL HEADER */}
-                <div className="p-4 border-b">
+                <div className="p-4 border-b border-border bg-card">
 
-                  <h3 className="font-semibold text-base mb-1">
+                  <h3 className="font-semibold text-base mb-1 text-foreground">
                     {campaign.subject || "No Subject"}
                   </h3>
 
@@ -193,7 +194,7 @@ const Preview = () => {
                 </div>
 
                 {/* FOOTER */}
-                <div className="border-t px-4 py-3 flex justify-between text-sm text-gray-500">
+                <div className="border-t border-border px-4 py-3 flex justify-between text-sm text-muted-foreground bg-card">
 
                   <button>↩ Reply</button>
                   <button>↪ Forward</button>
@@ -212,7 +213,7 @@ const Preview = () => {
 
             <button
               onClick={() => navigate("/campaign/editor")}
-              className="border px-5 py-2 rounded hover:bg-gray-100"
+              className="border border-border px-5 py-2 rounded-lg text-foreground hover:bg-muted transition-all font-medium"
             >
               Edit ✏️
             </button>
@@ -220,7 +221,7 @@ const Preview = () => {
             <button
               disabled={loading}
               onClick={handleSend}
-              className="bg-teal-500 text-white px-6 py-2 rounded hover:bg-teal-600 disabled:opacity-60"
+              className="bg-primary text-primary-foreground px-8 py-2 rounded-full font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20 disabled:opacity-60"
             >
               {loading ? "Sending..." : "Send 🚀"}
             </button>

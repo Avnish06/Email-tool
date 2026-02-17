@@ -6,12 +6,18 @@ import { CampaignProvider } from "./Context/CampaignContext";
 import { UserContextProvider } from "./Context/userContext";
 import "./index.css";
 
+import { ThemeProvider } from "./components/ThemeProvider";
+import ScrollToTop from "./components/ScrollToTop";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <UserContextProvider>
         <CampaignProvider>
-          <App />
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
         </CampaignProvider>
       </UserContextProvider>
     </BrowserRouter>
