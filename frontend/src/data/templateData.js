@@ -468,4 +468,33 @@ export const frontendTemplates = [
             { id: uuid(), type: "button", data: { text: "Renew Now", link: "#", bg: "#f59e0b", color: "#ffffff", radius: 8 } },
         ],
     },
+    // MODERN - SaaS Analytics
+    {
+        id: "modern-saas-analytics",
+        name: "📊 SaaS Growth Insights",
+        category: "Modern",
+        description: "Premium SaaS report with conceptual graphs",
+        blocks: [
+            { id: uuid(), type: "text", data: { text: "MONTHLY GROWTH REPORT", size: 14, color: "#6366f1", align: "left", bold: true, italic: false, underline: false } },
+            { id: uuid(), type: "text", data: { text: "Your Revenue is Climbing!", size: 36, color: "#111827", align: "left", bold: true, italic: false, underline: false } },
+            { id: uuid(), type: "image", data: { url: "https://storage.googleapis.com/banani-generated-images/generated-images/00bd44ad-2f85-4928-9bb1-ec5c15fdce71.jpg", width: 100, radius: 12 } },
+            { id: uuid(), type: "text", data: { text: "Last month, your campaigns achieved a record-breaking 45% conversion lift. Here's a deep dive into the metrics that drove this success.", size: 16, color: "#4b5563", align: "left", bold: false, italic: false, underline: false } },
+            { id: uuid(), type: "divider", data: { height: 1, color: "#e5e7eb" } },
+            { id: uuid(), type: "button", data: { text: "View Full Dashboard", link: "#", bg: "#6366f1", color: "#ffffff", radius: 8 } },
+        ],
+    },
+    // MODERN - Dark AI
+    {
+        id: "modern-dark-ai",
+        name: "✨ AI Feature Reveal",
+        category: "Modern",
+        description: "Intense dark theme with AI focus",
+        blocks: [
+            { id: uuid(), type: "text", data: { text: "THE FUTURE IS HERE", size: 12, color: "#a855f7", align: "center", bold: true, italic: false, underline: false } },
+            { id: uuid(), type: "text", data: { text: "Meet your AI Assistant", size: 48, color: "#ffffff", align: "center", bold: true, italic: false, underline: false } },
+            { id: uuid(), type: "image", data: { url: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1200", width: 90, radius: 24 } },
+            { id: uuid(), type: "text", data: { text: "Automate your entire workflow with a single click. Our new neural engine understands your needs better than ever.", size: 18, color: "#94a3b8", align: "center", bold: false, italic: false, underline: false } },
+            { id: uuid(), type: "button", data: { text: "Try AI Magic", link: "#", bg: "#9333ea", color: "#ffffff", radius: 100 } },
+        ],
+    },
 ];

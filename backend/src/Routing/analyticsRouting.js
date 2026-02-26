@@ -1,9 +1,9 @@
 import express from "express";
 import { getAnalyticsOverview } from "../controllers/analyticsController.js";
-import { isAuthenticated } from "../middleware/auth.js";
+import { isAuth } from "../middleware/isAuth.js";
 
 const router = express.Router();
 
-router.get("/overview", isAuthenticated, getAnalyticsOverview);
+router.get("/overview", isAuth, getAnalyticsOverview);
 
 export default router;

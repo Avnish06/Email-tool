@@ -28,38 +28,7 @@ import brightPathImg from "../assets/templates/brightpath.png";
 import colabImg from "../assets/templates/colab.png";
 import finbankImg from "../assets/templates/finbank.png";
 
-const features = [
-  {
-    title: "Visual Builder",
-    icon: Palette,
-    desc: "Drag and drop components to create stunning emails in minutes without writing code.",
-  },
-  {
-    title: "Automation",
-    icon: GitBranch,
-    desc: "Set up complex workflows triggered by user behavior to send the right message at the right time.",
-  },
-  {
-    title: "Segmentation",
-    icon: Users,
-    desc: "Target specific groups of users based on their attributes, activity, and purchase history.",
-  },
-  {
-    title: "Analytics",
-    icon: BarChart2,
-    desc: "Track opens, clicks, and revenue attribution in real-time with our advanced dashboard.",
-  },
-  {
-    title: "Delivery",
-    icon: Zap,
-    desc: "Ensure your emails land in the inbox, not the spam folder, with our optimized infrastructure.",
-  },
-  {
-    title: "Integrations",
-    icon: Plug,
-    desc: "Connect with your favorite tools including CRM, CMS, and e-commerce platforms seamlessly.",
-  },
-];
+import ProductJourney from "../components/ProductJourney";
 
 const logos = [
   { icon: Hexagon, name: "Acme" },
@@ -69,75 +38,8 @@ const logos = [
   { icon: Layers, name: "Layers" },
 ];
 
-const workflowSteps = [
-  {
-    step: "Step 01",
-    title: "Campaign Name",
-    desc: "Start by defining your campaign identity. Set internal names and goals to keep your marketing efforts organized.",
-    icon: Tag,
-  },
-  {
-    step: "Step 02",
-    title: "Import Contacts",
-    desc: "Upload your audience list seamlessly. Support for CSV imports or direct integration with your existing CRM tools.",
-    icon: Users,
-  },
-  {
-    step: "Step 03",
-    title: "Select Type",
-    desc: "Choose the perfect format for your message. From regular newsletters to automated drip sequences or A/B tests.",
-    icon: MousePointerClick,
-  },
-  {
-    step: "Step 04",
-    title: "Write Mail",
-    desc: "Draft compelling subject lines and preview text. Ensure your message grabs attention right from the inbox.",
-    icon: Mail,
-  },
-  {
-    step: "Step 05",
-    title: "Editor",
-    desc: "Drag and drop components to create stunning emails in minutes without writing a single line of code.",
-    icon: Palette,
-  },
-  {
-    step: "Step 06",
-    title: "Preview & Send",
-    desc: "Test across devices, review your checklist, and schedule your campaign for the perfect delivery time.",
-    icon: Send,
-  },
-];
-
-const FeatureCard = ({ icon: Icon, title, desc }) => {
-  const cardRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
-    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      className="feature-card-modern group"
-    >
-      <div className="relative z-10">
-        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-primary/10 text-primary">
-          <Icon size={24} />
-        </div>
-        <h3 className="text-xl font-semibold mb-3">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {desc}
-        </p>
-      </div>
-    </div>
-  );
-};
+import CampaignWorkflow from "../components/CampaignWorkflow";
+import Pricing from "../components/Pricing";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -145,7 +47,7 @@ const Home = () => {
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden selection:bg-primary/30">
       {/* ===== NAVBAR ===== */}
-      <nav className="fixed top-0 w-full h-[72px] z-50 border-b border-border backdrop-blur-xl bg-background/80">
+      <nav className="fixed top-0 w-full h-[72px] z-50 backdrop-blur-xl bg-background/80">
         <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => navigate("/")}>
             <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-primary text-primary-foreground">
@@ -228,70 +130,35 @@ const Home = () => {
             <p className="text-[12px] font-semibold tracking-[1px] text-muted-foreground mb-6">
               TRUSTED BY 10,000+ TEAMS
             </p>
-            <div className="flex flex-wrap justify-center gap-10 opacity-40 grayscale hover:grayscale-0 transition-all duration-500 text-foreground">
-              {logos.map(({ icon: Icon, name }) => (
-                <div key={name} className="flex items-center gap-2 text-xl font-bold">
-                  <Icon size={20} /> {name}
-                </div>
-              ))}
+            {/* Scrolling Logo Container */}
+            <div className="relative overflow-hidden">
+              <div className="flex gap-10 animate-scroll-logos">
+                {/* First set of logos */}
+                {logos.map(({ icon: Icon, name }, idx) => (
+                  <div key={`${name}-1-${idx}`} className="flex items-center gap-2 text-xl font-bold text-foreground opacity-40 hover:opacity-100 transition-opacity whitespace-nowrap">
+                    <Icon size={20} /> {name}
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {logos.map(({ icon: Icon, name }, idx) => (
+                  <div key={`${name}-2-${idx}`} className="flex items-center gap-2 text-xl font-bold text-foreground opacity-40 hover:opacity-100 transition-opacity whitespace-nowrap">
+                    <Icon size={20} /> {name}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== FEATURES ===== */}
-      <section id="features" className="py-24 border-t border-border bg-gradient-to-b from-background to-accent/5">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center max-w-[600px] mx-auto mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Everything you need to scale</h2>
-            <p className="text-lg text-muted-foreground">
-              Powerful features designed for growth. Built for speed, reliability, and ease of use.
-            </p>
-          </div>
+      {/* ===== FEATURES (PRODUCT JOURNEY) ===== */}
+      <ProductJourney />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f) => (
-              <FeatureCard key={f.title} {...f} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== WORKFLOW ===== */}
-      <section id="workflow" className="py-24 border-t border-border">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center max-w-[600px] mx-auto mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Campaign Workflow</h2>
-            <p className="text-lg text-muted-foreground">
-              Create stunning email campaigns in minutes with our intuitive step-by-step process.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {workflowSteps.map((s) => (
-              <div key={s.title} className="card p-8 border border-border bg-card group hover:border-primary transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
-                  <s.icon size={32} />
-                </div>
-                <div className="space-y-4">
-                  <span className="text-[12px] uppercase tracking-wider font-bold text-primary">
-                    {s.step}
-                  </span>
-                  <h3 className="text-xl font-bold text-foreground">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== WORKFLOW (CAMPAIGN WORKFLOW) ===== */}
+      <CampaignWorkflow />
 
       {/* ===== TEMPLATES COLLAGE (PREMIUM REDESIGN) ===== */}
-      <section className="py-24 bg-[#0a0a0a] overflow-hidden relative border-y border-white/5">
+      <section className="py-24 bg-[#0a0a0a] overflow-hidden relative">
         {/* Intense background "Shade" glows */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-primary/10 blur-[130px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-primary/20 blur-[160px] rounded-full pointer-events-none"></div>
@@ -307,53 +174,59 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4 lg:gap-8 pb-12">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-4 lg:gap-6 pb-12">
             
             {/* Left Template: BrightPath */}
-            <div className="w-full max-w-[320px] transition-all duration-500 hover:-translate-y-4 hover:rotate-0 group order-2 md:order-1">
+            <div className="w-full max-w-[240px] transition-all duration-500 hover:-translate-y-4 hover:rotate-0 group order-2 md:order-1">
               <div className="overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-[#161616] md:-rotate-3 group-hover:border-primary/30 transition-all duration-500">
-                <img 
-                  src={brightPathImg} 
-                  alt="BrightPath Template" 
-                  className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-                <div className="p-5 bg-gradient-to-b from-[#161616] to-[#0f0f0f]">
-                  <p className="font-bold text-white text-lg">BrightPath</p>
+                <div className="h-[320px] overflow-hidden">
+                  <img 
+                    src={brightPathImg} 
+                    alt="BrightPath Template" 
+                    className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="p-4 bg-gradient-to-b from-[#161616] to-[#0f0f0f]">
+                  <p className="font-bold text-white text-base">BrightPath</p>
                   <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-semibold mt-1">Non-profit</p>
                 </div>
               </div>
             </div>
 
             {/* Center Template: Co-Lab (Featured Focus) */}
-            <div className="w-full max-w-[360px] relative z-20 transition-all duration-500 hover:-translate-y-6 group order-1 md:order-2">
+            <div className="w-full max-w-[260px] relative z-20 transition-all duration-500 hover:-translate-y-6 group order-1 md:order-2">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-black text-[10px] font-black uppercase px-4 py-1.5 rounded-full shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-1.5 z-30">
                 <Zap size={10} fill="currentColor" />
                 Most Popular
               </div>
               
-              <div className="overflow-hidden rounded-2xl shadow-[0_40px_100px_-15px_rgba(0,181,173,0.3)] border-2 border-primary/50 bg-[#1a1a1a] scale-100 md:scale-110 group-hover:border-primary transition-all duration-700">
-                <img 
-                  src={colabImg} 
-                  alt="Co-Lab Template" 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="p-6 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
-                  <p className="font-bold text-white text-xl">Co-Lab</p>
+              <div className="overflow-hidden rounded-2xl shadow-[0_40px_100px_-15px_rgba(0,181,173,0.3)] border-2 border-primary/50 bg-[#1a1a1a] scale-100 md:scale-105 group-hover:border-primary transition-all duration-700">
+                <div className="h-[360px] overflow-hidden">
+                  <img 
+                    src={colabImg} 
+                    alt="Co-Lab Template" 
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="p-5 bg-gradient-to-b from-[#1a1a1a] to-[#121212]">
+                  <p className="font-bold text-white text-lg">Co-Lab</p>
                   <p className="text-[10px] text-primary uppercase tracking-[0.2em] font-black mt-1">Modern Agency</p>
                 </div>
               </div>
             </div>
 
             {/* Right Template: FinBank */}
-            <div className="w-full max-w-[320px] transition-all duration-500 hover:-translate-y-4 hover:rotate-0 group order-3">
+            <div className="w-full max-w-[240px] transition-all duration-500 hover:-translate-y-4 hover:rotate-0 group order-3">
               <div className="overflow-hidden rounded-2xl shadow-2xl border border-white/10 bg-[#161616] md:rotate-3 group-hover:border-primary/30 transition-all duration-500">
-                <img 
-                  src={finbankImg} 
-                  alt="FinBank Template" 
-                  className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-                <div className="p-5 bg-gradient-to-b from-[#161616] to-[#0f0f0f]">
-                  <p className="font-bold text-white text-lg">FinBank</p>
+                <div className="h-[320px] overflow-hidden">
+                  <img 
+                    src={finbankImg} 
+                    alt="FinBank Template" 
+                    className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="p-4 bg-gradient-to-b from-[#161616] to-[#0f0f0f]">
+                  <p className="font-bold text-white text-base">FinBank</p>
                   <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-semibold mt-1">Corporate Banking</p>
                 </div>
               </div>
@@ -368,6 +241,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* ===== PRICING ===== */}
+      <Pricing />
 
       {/* ===== CTA ===== */}
       <section className="py-24">
@@ -389,32 +265,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer className="py-16 border-t border-border bg-background">
-        <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-8 opacity-80">
-            <div className="w-6 h-6 rounded-md flex items-center justify-center bg-muted-foreground text-background">
-              <Zap size={14} />
-            </div>
-            <span className="font-semibold text-muted-foreground">EmailSpark</span>
-          </div>
-
-          <div className="flex gap-8 mb-8">
-            {["Privacy", "Terms", "Twitter", "GitHub"].map((link) => (
-              <a key={link} href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                {link}
-              </a>
-            ))}
-          </div>
-
-          <div className="text-muted-foreground/50 text-sm">
-            © 2024 EmailSpark. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
 
 export default Home;
+

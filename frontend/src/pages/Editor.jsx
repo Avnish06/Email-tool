@@ -4,6 +4,8 @@ import { useCampaign } from "../Context/CampaignContext";
 import { v4 as uuid } from "uuid";
 import CampaignLayout from "../layouts/CampaignLayout";
 import React from "react";
+import axios from "axios";
+import { Sparkles, Loader2 } from "lucide-react";
 
 /* ================= MAIN ================= */
 
@@ -63,6 +65,9 @@ useEffect(() => {
 
 
   const [dragId, setDragId] = useState(null);
+  const [isAIModalOpen, setIsAIModalOpen] = useState(false);
+  const [aiPrompt, setAiPrompt] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
 
   /* ================= AUTO SAVE ================= */
 
@@ -161,6 +166,29 @@ useEffect(() => {
     setDragId(null);
   };
 
+  /* ================= AI GENERATION ================= */
+
+  const handleAIGenerate = async () => {
+    if (!aiPrompt) return;
+    setIsGenerating(true);
+    try {
+      const { data } = await axios.post("http://localhost:8001/api/v1/ai/generate", {
+        prompt: aiPrompt,
+      });
+
+      if (data.success) {
+        setBlocks(data.blocks);
+        setIsAIModalOpen(false);
+        setAiPrompt("");
+      }
+    } catch (error) {
+      console.error("AI Generation failed", error);
+      alert("Failed to generate template. Please try again.");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   /* ================= SAVE ================= */
 
   const save = () => {
@@ -211,6 +239,12 @@ useEffect(() => {
               <Tool onClick={() => addBlock("image")}>🖼 Image</Tool>
               <Tool onClick={() => addBlock("button")}>🔘 Button</Tool>
               <Tool onClick={() => addBlock("divider")}>➖ Divider</Tool>
+              <button
+                onClick={() => setIsAIModalOpen(true)}
+                className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg flex items-center gap-2 font-semibold hover:shadow-lg transition-all active:scale-95"
+              >
+                <Sparkles size={16} /> Magic AI ✨
+              </button>
             </div>
 
             {/* BLOCKS */}
@@ -242,6 +276,53 @@ useEffect(() => {
             <MobilePreview subject={campaign.subject} blocks={blocks} />
           </div>
         </div>
+
+        {/* AI MODAL */}
+        {isAIModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4">
+            <div className="bg-card w-full max-w-md rounded-2xl border border-border shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                    <Sparkles size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">Magic AI Template</h3>
+                    <p className="text-sm text-muted-foreground">Describe your email idea</p>
+                  </div>
+                </div>
+
+                <textarea
+                  value={aiPrompt}
+                  onChange={(e) => setAiPrompt(e.target.value)}
+                  placeholder="e.g., A professional newsletter for a tech company, or a high-converting sale announcement for a clothing store..."
+                  className="w-full h-32 p-4 bg-muted/50 border border-border rounded-xl focus:ring-2 focus:ring-purple-500 outline-none transition-all resize-none text-foreground"
+                />
+
+                <div className="flex gap-3 mt-6">
+                  <button
+                    onClick={() => setIsAIModalOpen(false)}
+                    className="flex-1 py-3 px-4 rounded-xl border border-border hover:bg-muted font-semibold transition-all"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleAIGenerate}
+                    disabled={isGenerating || !aiPrompt}
+                    className="flex-[2] py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold hover:opacity-90 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                  >
+                    {isGenerating ? (
+                      <Loader2 size={18} className="animate-spin" />
+                    ) : (
+                      <Sparkles size={18} />
+                    )}
+                    {isGenerating ? "Generating..." : "Generate Magic"}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </CampaignLayout>
   );
