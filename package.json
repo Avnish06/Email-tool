@@ -1,0 +1,9 @@
+{
+  "name": "email-marketing-root",
+  "private": true,
+  "scripts": {
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "build:backend": "cd backend && npm install",
+    "build": "npm run build:frontend"
+  }
+}

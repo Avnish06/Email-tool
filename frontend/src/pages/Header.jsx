@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDetails } from "../Context/userContext";
 import { Zap } from "lucide-react";
+import Logo from "../components/Logo";
 import { ThemeToggle } from "../components/ThemeToggle";
 
 const Header = () => {
@@ -18,15 +19,10 @@ const Header = () => {
       <div className="container max-w-[1200px] mx-auto px-6 w-full flex items-center justify-between">
         {/* Left: Brand */}
         <div
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center gap-3 cursor-pointer"
           onClick={() => navigate("/")}
         >
-           <div className="logo-mark w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 transition-transform group-hover:scale-105">
-            <Zap size={18} fill="currentColor" />
-          </div>
-          <div className="brand-name text-lg font-bold text-foreground tracking-tight">
-            Hatbaliya Technology
-          </div>
+          <Logo />
         </div>
 
         {/* Center: Main nav */}

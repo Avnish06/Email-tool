@@ -239,11 +239,18 @@
 
   /* Enhanced Button Styles */
   .btn-primary-glow {
-    @apply btn text-white;
+    @apply btn text-white font-semibold;
     background-color: var(--primary);
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 30%, transparent);
     border-radius: 9999px;
-    padding: 12px 24px;
+    padding: 12px 28px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-primary-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--primary) 50%, transparent);
+    background-color: var(--accent);
   }
 
   .btn-secondary-outline {
@@ -269,7 +276,7 @@
   .feature-card-modern:hover {
     transform: translateY(-4px);
     border-color: var(--primary);
-    box-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 10px 40px -10px color-mix(in srgb, var(--primary) 30%, transparent);
   }
 
   .feature-card-modern::before {
@@ -277,7 +284,7 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(14, 165, 233, 0.06),
+        color-mix(in srgb, var(--primary) 10%, transparent),
         transparent 40%);
     opacity: 0;
     transition: opacity 0.3s;
