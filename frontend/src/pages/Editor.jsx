@@ -6,6 +6,7 @@ import CampaignLayout from "../layouts/CampaignLayout";
 import React from "react";
 import axios from "axios";
 import { Sparkles, Loader2 } from "lucide-react";
+import { AppUrl } from "../App";
 
 /* ================= MAIN ================= */
 
@@ -172,7 +173,7 @@ useEffect(() => {
     if (!aiPrompt) return;
     setIsGenerating(true);
     try {
-      const { data } = await axios.post("http://localhost:8001/api/v1/ai/generate", {
+      const { data } = await axios.post(`${AppUrl}/ai/generate`, {
         prompt: aiPrompt,
       });
 
