@@ -1,5 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Zap, MessageSquare, Box, Users } from 'lucide-react';
 
 function Footer() {
@@ -46,9 +45,20 @@ function Footer() {
           <div className="space-y-6">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground">Platform</h4>
             <ul className="space-y-4">
-              {["Dashboard", "Campaigns", "Analytics", "Contacts", "Integrations"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{item}</a>
+              {[
+                { name: "Dashboard", path: "/dashboard" },
+                { name: "Services", path: "/services" },
+                { name: "Campaigns", path: "/campaigns" },
+                { name: "Analytics", path: "/analytics" },
+                { name: "Contacts", path: "/contacts" }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.path} 
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -58,9 +68,28 @@ function Footer() {
           <div className="space-y-6">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-foreground">Resources</h4>
             <ul className="space-y-4">
-              {["Documentation", "API Reference", "Blog", "System Status", "Trust & Safety"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{item}</a>
+              {[
+                { name: "Documentation", path: "/documentation" },
+                { name: "API Reference", path: "#" },
+                { name: "Blog", path: "#" },
+                { name: "System Status", path: "#" },
+                { name: "Trust & Safety", path: "#" }
+              ].map((item) => (
+                <li key={item.name}>
+                  {item.path !== "#" ? (
+                    <Link 
+                      to={item.path} 
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <span 
+                      className="text-sm text-muted-foreground/50 cursor-default"
+                    >
+                      {item.name}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

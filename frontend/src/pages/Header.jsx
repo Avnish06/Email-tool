@@ -30,8 +30,10 @@ const Header = () => {
           {[
             { label: "Campaigns", path: "/campaigns" },
             { label: "Analytics", path: "/analytics" },
+            { label: "Services", path: "/services" },
             { label: "Templates", path: "/campaign/templates" },
             { label: "Contacts", path: "/contacts" },
+            { label: "Docs", path: "/documentation" },
           ].map((item) => (
             <span
               key={item.label}

@@ -16,6 +16,8 @@ import Profile from "./pages/Profile";
 import Analytics from "./pages/Analytics";
 import Contacts from "./pages/Contacts";
 import Dashboard from "./pages/Dashboard";
+import Documentation from "./pages/Documentation";
+import Services from "./pages/Services";
 import CreateTemplate from "./Templates/CreateTemplate.jsx";
 import TemplateLibrary from "./Templates/TemplateLibrary";
 
@@ -67,6 +69,8 @@ function App() {
           <Route path="/campaign/preview" element={<Preview />} />
           <Route path="/createtemplate" element={<CreateTemplate />} />
           <Route path="/userdetails" element={<UserDetails />} />
+          <Route path="/documentation" element={<Documentation />} />
+          <Route path="/services" element={<Services />} />
           {/* 404 */}
           <Route
             path="*"
