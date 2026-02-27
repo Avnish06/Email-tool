@@ -121,7 +121,7 @@ const CampaignWorkflow = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .campaign-workflow-section {
           --font-family-body: 'DM Sans', 'Inter', sans-serif;
         }
@@ -145,7 +145,7 @@ const CampaignWorkflow = () => {
              left: 20px;
            }
         }
-      `}</style>
+      `}} />
     </section>
   );
 };

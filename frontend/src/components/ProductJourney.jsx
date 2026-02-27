@@ -165,7 +165,7 @@ const ProductJourney = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .product-journey-section {
           --font-family-body: 'DM Sans', 'Inter', sans-serif;
         }
@@ -248,7 +248,7 @@ const ProductJourney = () => {
             width: 100% !important;
           }
         }
-      `}</style>
+      `}} />
     </section>
   );
 };
